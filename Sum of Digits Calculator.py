@@ -7,7 +7,7 @@ ans = 0
 og = num
 
 
-while num > 0:
+while num > 0: #code to calculate sum
     rem = num % 10
     ans = ans + rem
     num = int(num/10)
