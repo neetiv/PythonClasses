@@ -12,8 +12,8 @@ for j in range(0, len(nums)):
     x = x+1
     lst.clear()
 
-##print ("The gcd of",nums[0],"and",nums[1],"is : ") #gcd
-##if((int(nums[1]))==0): 
-##    print(int(nums[0]))
-##else: 
-##    print((int(nums[0])%int(nums[1])))
+import math
+gcd=(math.gcd(int(nums[0]),int(nums[1])))
+print("The GCD of",nums[0],"and",nums[1],"is",gcd)
+
+print("The LCM of",nums[0],"and",nums[1],"is",int((int(nums[0])*int(nums[1]))/gcd))
