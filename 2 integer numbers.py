@@ -1,32 +1,50 @@
-inp = input("Give two numbers(seperated by commas):  ")
+inp = input("Give three numbers(seperated by commas):  ")
 nums = inp.split(',')
 #print(nums)
 one = []
 two = []
+three = []
+
+def factors(x,y):
+    for g in range(1,(x)+1):
+        if int(x) % g == 0:
+            y.append(g)
+        
+    print("The factors of",x,"are: ",y)
+
+nums[0]=int(nums[0])
+nums[1]=int(nums[1])
+nums[2]=int(nums[2])
+
+factors(nums[0],one)
+factors(nums[1],two)
+factors(nums[2],three)
 
 
-for y in range(1, int(nums[0])):
-    if int(nums[0]) % y == 0:
-        one.append(y)
-print("The factors of",nums[0],"are:",one)
+gcd = 1
+for i in range(0, len(one)):
+    for j in range(0, len(two)):
+        for t in range(0, len(three)):
+            if one[-1*i] == two[-1*j] and one[-1*i] == three[-1*t] and three[-1*t] == two[-1*j]:
+                gcd=(one[-1*i])
+                break
+        if gcd>1:
+            break
+    if gcd>1:
+        break
+print(gcd, "is the GCD of", nums[0], ",", nums[1], "and", nums[2])
 
 
-for a in range(1, int(nums[1])):
-    if int(nums[1]) % a == 0:
-        two.append(a)
-print("The factors of",nums[1],"are:",two)
+multiple=1
+while True:
+    if multiple%nums[0] == 0 and multiple%nums[1]==0 and multiple%nums[2]==0:
+        lcm=multiple
+        break
+    else:
+        multiple=multiple+1
+    
+print("The LCM of",nums[0],",",nums[1],"and", nums[2], "is",lcm)
 
-
-##gcd = 1
-##for i in range(0, len(one)):
-##    for j in range(0, len(two)):
-##        if one[-1*i] == two[-1*j]:
-##            gcd=(one[-1*i])
-##            print(gcd, "is the GCD of", nums[0], "and", nums[1])
-##            break
-##
-####import math
-####gcd=(math.gcd(int(nums[0]),int(nums[1])))
-####print("The GCD of",nums[0],"and",nums[1],"is",gcd)
-##
-##print("The LCM of",nums[0],"and",nums[1],"is",int((int(nums[0])*int(nums[1]))/gcd))
+        
+if gcd == 1:
+    print(nums[0], ",", nums[1], "and", nums[2], "are relatively prime.")
