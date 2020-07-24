@@ -8,7 +8,11 @@ for g in range(2,(num)+1):
         factors.append(' ')
         num = num/g
 for x in range(1, len(factors)):
-    if len(factors) % x != 0:
-        factors[x] = 
+    if x%4==0:
+        factors[x-1]='*'
+    elif x%2==0:
+        factors[x-1]='^'
+        
+del factors[-1]
 
-print("The prime factorization of",store,"is",factors)
+print("The prime factorization of ",store," is ",*factors, sep = '')
