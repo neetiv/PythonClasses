@@ -14,18 +14,20 @@ if level == '1':
     guesses = 8
 elif level == '2':
     maximum = 1000
-    guesses = 20
+    guesses = 12
 elif level == '3':
     maximum = 10000
-    guesses = 26
+    guesses = 30
 
 num = random.randint(1, maximum)
 guess = 0
+percent = 0
 while True:
     i = int(input('''
 Guess a number between 1 and %s:  ''' % maximum))
     x = abs(num-i)
-    
+    percent = x/maximum
+
     if i == num:
         print('You guessed right!')
         break
