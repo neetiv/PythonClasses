@@ -11,13 +11,13 @@ maximum = 0
 guesses = 0
 if level == '1':
     maximum = 100
-    guesses = 8
+    guesses = 6
 elif level == '2':
     maximum = 1000
-    guesses = 12
+    guesses = 7
 elif level == '3':
     maximum = 10000
-    guesses = 30
+    guesses = 8
 
 num = random.randint(1, maximum)
 guess = 0
@@ -25,22 +25,18 @@ percent = 0
 while True:
     i = int(input('''
 Guess a number between 1 and %s:  ''' % maximum))
-    x = abs(num-i)
-    percent = x/maximum
-
+    percent = 100*((abs(num-i))/maximum)
     if i == num:
-        print('You guessed right!')
+        print("You guessed correctly! :)")
         break
-    elif x <= 5:
-        print("Very Hot")
-    elif x <= 10:
-        print("Hot")
-    elif x <= 20:
-        print("Warm")
-    elif x <= 50:
-        print("Cold")
+    elif level == '1':
+        if i > num:
+            print("Your number is higher than the computer's number")
+        elif i < num:
+            print("Your number is lower than the computer's number")
     else:
-        print("Very Cold")
+        print("You are", percent, "% away from the computer's number.")
+        
         
     guess+=1
     if guess==guesses:
